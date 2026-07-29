@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -21,41 +22,75 @@ body{
     align-items:center;
     min-height:100vh;
     overflow:hidden;
+
     background:linear-gradient(-45deg,#020617,#0f172a,#1d4ed8,#38bdf8);
     background-size:400% 400%;
     animation:bg 15s ease infinite;
 }
 
+
 @keyframes bg{
-    0%{background-position:0% 50%;}
-    50%{background-position:100% 50%;}
-    100%{background-position:0% 50%;}
+
+    0%{
+        background-position:0% 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0% 50%;
+    }
+
 }
+
 
 .stars{
+
     position:fixed;
     inset:0;
+
     background-image:
     radial-gradient(white 1px,transparent 1px);
+
     background-size:40px 40px;
+
     opacity:.2;
+
     animation:stars 60s linear infinite;
+
 }
+
 
 @keyframes stars{
-    from{transform:translateY(0);}
-    to{transform:translateY(-500px);}
+
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(-500px);
+    }
+
 }
 
+
+
 .card{
+
     position:relative;
-    z-index:10;
+
     width:450px;
+
     padding:45px;
+
     border-radius:25px;
+
     text-align:center;
 
     background:rgba(255,255,255,.08);
+
     backdrop-filter:blur(20px);
 
     border:1px solid rgba(255,255,255,.15);
@@ -63,11 +98,93 @@ body{
     box-shadow:
     0 20px 60px rgba(0,0,0,.4),
     0 0 50px rgba(59,130,246,.3);
+
 }
 
+
+
+/* הגדרות */
+
+.settings{
+
+    position:absolute;
+
+    top:20px;
+
+    right:20px;
+
+    font-size:30px;
+
+    cursor:pointer;
+
+    color:white;
+
+}
+
+
+.settings-menu{
+
+    position:absolute;
+
+    top:40px;
+
+    right:0;
+
+    width:170px;
+
+    background:rgba(0,0,0,.85);
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+    display:none;
+
+}
+
+
+.settings:hover .settings-menu{
+
+    display:block;
+
+}
+
+
+.settings-menu button{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    background:none;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+}
+
+
+.settings-menu button:hover{
+
+    background:#2563eb;
+
+}
+
+
+
+/* לוגו */
+
 .logo{
+
     width:110px;
+
     height:110px;
+
     margin:auto;
 
     border-radius:50%;
@@ -75,7 +192,9 @@ body{
     background:linear-gradient(135deg,#3b82f6,#06b6d4);
 
     display:flex;
+
     justify-content:center;
+
     align-items:center;
 
     font-size:50px;
@@ -85,9 +204,13 @@ body{
     box-shadow:0 0 35px #3b82f6;
 
     animation:float 4s ease-in-out infinite;
+
 }
 
+
+
 @keyframes float{
+
     0%,100%{
         transform:translateY(0);
     }
@@ -95,30 +218,49 @@ body{
     50%{
         transform:translateY(-10px);
     }
+
 }
+
+
 
 h1{
+
     margin-top:25px;
+
     color:white;
+
     font-size:42px;
+
 }
+
+
 
 p{
+
     color:#dbeafe;
+
     margin:15px 0 35px;
+
     font-size:18px;
+
 }
 
+
+
 .btn{
+
     width:100%;
+
     padding:18px;
 
     margin:12px 0;
 
     border:none;
+
     border-radius:14px;
 
     font-size:20px;
+
     font-weight:bold;
 
     cursor:pointer;
@@ -126,15 +268,26 @@ p{
     color:white;
 
     transition:.3s;
+
 }
+
+
 
 .github{
+
     background:linear-gradient(90deg,#24292e,#3f4348);
+
 }
 
+
+
 .projects{
+
     background:linear-gradient(90deg,#2563eb,#38bdf8);
+
 }
+
+
 
 .btn:hover{
 
@@ -144,59 +297,115 @@ p{
 
 }
 
+
+
 .footer{
+
     margin-top:35px;
+
     color:#bfdbfe;
+
     font-size:14px;
+
 }
+
 
 </style>
 
 </head>
 
+
 <body>
+
 
 <div class="stars"></div>
 
+
 <div class="card">
+
+
+<!-- הגדרות -->
+
+<div class="settings">
+
+⚙️
+
+<div class="settings-menu">
+
+<button onclick="setLanguage('en')">
+🇺🇸 English
+</button>
+
+<button onclick="setLanguage('he')">
+🇮🇱 עברית
+</button>
+
+</div>
+
+</div>
+
+
 
 <div class="logo">
 🚀
 </div>
 
-<h1>My Portfolio</h1>
 
-<p>
+<h1 id="title">
+My Portfolio
+</h1>
+
+
+<p id="subtitle">
 Welcome to my personal website
 </p>
 
-<button class="btn github" onclick="github()">
+
+
+<button id="githubBtn" class="btn github" onclick="github()">
+
 🐙 GitHub
+
 </button>
 
-<button class="btn projects" onclick="projects()">
+
+
+<button id="projectsBtn" class="btn projects" onclick="projects()">
+
 📂 Projects
+
 </button>
 
-<div class="footer">
-Made with ❤️
-</div>
+
+
+<div id="footer" class="footer">
+
+Created by Elroie
 
 </div>
+
+
+</div>
+
+
+
 
 <script>
 
-/* ==========================================================
-   הכנס כאן את הקישורים שלך בלבד
-   ========================================================== */
+
+// הקישורים שלך
 
 const GITHUB_URL =
-"https://github.com/YOUR_USERNAME";
+"https://github.com/dashboard";
+
 
 const PROJECTS_URL =
-"https://example.com/projects";
+"https://elroie2000games-crypto.github.io/projects_site/";
 
-/* ========================================================== */
+
+
+
+// מעבר לקישורים
 
 function github(){
 
@@ -204,13 +413,116 @@ window.open(GITHUB_URL,"_blank");
 
 }
 
+
 function projects(){
 
 window.open(PROJECTS_URL,"_blank");
 
 }
 
+
+
+
+
+// תרגומים
+
+const translations = {
+
+
+en:{
+
+title:"My Portfolio",
+
+subtitle:"Welcome to my personal website",
+
+github:"🐙 GitHub",
+
+projects:"📂 Projects",
+
+footer:"Created by Elroie"
+
+},
+
+
+he:{
+
+title:"הפורטפוליו שלי",
+
+subtitle:"ברוכים הבאים לאתר האישי שלי",
+
+github:"🐙 גיטהאב",
+
+projects:"📂 פרויקטים",
+
+footer:"נוצר על ידי אלרואי"
+
+}
+
+
+};
+
+
+
+
+function setLanguage(lang){
+
+
+document.documentElement.lang = lang;
+
+
+if(lang=="he"){
+
+document.documentElement.dir="rtl";
+
+}
+
+else{
+
+document.documentElement.dir="ltr";
+
+}
+
+
+
+document.getElementById("title").innerHTML =
+translations[lang].title;
+
+
+document.getElementById("subtitle").innerHTML =
+translations[lang].subtitle;
+
+
+document.getElementById("githubBtn").innerHTML =
+translations[lang].github;
+
+
+document.getElementById("projectsBtn").innerHTML =
+translations[lang].projects;
+
+
+document.getElementById("footer").innerHTML =
+translations[lang].footer;
+
+
+
+localStorage.setItem("language",lang);
+
+
+}
+
+
+
+
+let savedLanguage =
+localStorage.getItem("language") || "en";
+
+
+setLanguage(savedLanguage);
+
+
+
 </script>
+
 
 </body>
 </html>
