@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="he" dir="rtl">
+
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>My Portfolio</title>
+<title>הפרויקטים של אלרואי</title>
+
 
 <style>
 
@@ -13,20 +15,25 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Segoe UI,Arial,sans-serif;
+    font-family:Arial,sans-serif;
 }
+
 
 body{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    min-height:100vh;
-    overflow:hidden;
 
-    background:linear-gradient(-45deg,#020617,#0f172a,#1d4ed8,#38bdf8);
+    min-height:100vh;
+
+    background:
+    linear-gradient(-45deg,#020617,#1e3a8a,#2563eb,#38bdf8);
+
     background-size:400% 400%;
-    animation:bg 15s ease infinite;
+
+    animation:bg 15s infinite;
+
+    color:white;
+
 }
+
 
 
 @keyframes bg{
@@ -46,9 +53,11 @@ body{
 }
 
 
+
 .stars{
 
     position:fixed;
+
     inset:0;
 
     background-image:
@@ -58,115 +67,110 @@ body{
 
     opacity:.2;
 
-    animation:stars 60s linear infinite;
-
-}
-
-
-@keyframes stars{
-
-    from{
-        transform:translateY(0);
-    }
-
-    to{
-        transform:translateY(-500px);
-    }
-
 }
 
 
 
-.card{
+/* HEADER */
+
+header{
 
     position:relative;
 
-    width:450px;
-
-    padding:45px;
-
-    border-radius:25px;
-
     text-align:center;
 
-    background:rgba(255,255,255,.08);
-
-    backdrop-filter:blur(20px);
-
-    border:1px solid rgba(255,255,255,.15);
-
-    box-shadow:
-    0 20px 60px rgba(0,0,0,.4),
-    0 0 50px rgba(59,130,246,.3);
+    padding:60px 20px;
 
 }
 
 
 
-/* הגדרות */
+header h1{
+
+    font-size:50px;
+
+    margin-bottom:15px;
+
+}
+
+
+
+header p{
+
+    font-size:22px;
+
+    opacity:.8;
+
+    margin-bottom:30px;
+
+}
+
+
+
+/* SETTINGS */
 
 .settings{
 
     position:absolute;
 
-    top:20px;
+    top:25px;
 
-    right:20px;
+    right:30px;
 
-    font-size:30px;
+    font-size:32px;
 
     cursor:pointer;
 
-    color:white;
+    user-select:none;
 
 }
+
 
 
 .settings-menu{
 
-    position:absolute;
+    display:none;
 
-    top:40px;
+    position:absolute;
 
     right:0;
 
-    width:170px;
+    top:45px;
 
-    background:rgba(0,0,0,.85);
+    width:180px;
 
-    border-radius:12px;
+    background:rgba(0,0,0,.9);
+
+    border-radius:15px;
 
     overflow:hidden;
 
-    display:none;
+    box-shadow:0 10px 30px rgba(0,0,0,.4);
+
+    z-index:100;
 
 }
 
-
-.settings:hover .settings-menu{
-
-    display:block;
-
-}
 
 
 .settings-menu button{
 
     width:100%;
 
-    padding:14px;
-
-    border:none;
+    padding:15px;
 
     background:none;
+
+    border:none;
 
     color:white;
 
     cursor:pointer;
 
-    font-size:16px;
+    font-size:17px;
 
 }
+
 
 
 .settings-menu button:hover{
@@ -177,95 +181,23 @@ body{
 
 
 
-/* לוגו */
-
-.logo{
-
-    width:110px;
-
-    height:110px;
-
-    margin:auto;
-
-    border-radius:50%;
-
-    background:linear-gradient(135deg,#3b82f6,#06b6d4);
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    font-size:50px;
-
-    color:white;
-
-    box-shadow:0 0 35px #3b82f6;
-
-    animation:float 4s ease-in-out infinite;
-
-}
 
 
+.back{
 
-@keyframes float{
+    display:inline-block;
 
-    0%,100%{
-        transform:translateY(0);
-    }
+    background:white;
 
-    50%{
-        transform:translateY(-10px);
-    }
+    color:#1e3a8a;
 
-}
+    padding:12px 25px;
 
+    border-radius:15px;
 
-
-h1{
-
-    margin-top:25px;
-
-    color:white;
-
-    font-size:42px;
-
-}
-
-
-
-p{
-
-    color:#dbeafe;
-
-    margin:15px 0 35px;
-
-    font-size:18px;
-
-}
-
-
-
-.btn{
-
-    width:100%;
-
-    padding:18px;
-
-    margin:12px 0;
-
-    border:none;
-
-    border-radius:14px;
-
-    font-size:20px;
+    text-decoration:none;
 
     font-weight:bold;
-
-    cursor:pointer;
-
-    color:white;
 
     transition:.3s;
 
@@ -273,41 +205,132 @@ p{
 
 
 
-.github{
+.back:hover{
 
-    background:linear-gradient(90deg,#24292e,#3f4348);
+    transform:scale(1.05);
 
 }
 
+
+
+
+
+/* PROJECTS */
 
 
 .projects{
 
-    background:linear-gradient(90deg,#2563eb,#38bdf8);
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(300px,1fr));
+
+    gap:35px;
+
+    max-width:1100px;
+
+    margin:auto;
+
+    padding:40px;
 
 }
 
 
 
-.btn:hover{
 
-    transform:translateY(-6px) scale(1.03);
+.card{
 
-    box-shadow:0 15px 30px rgba(0,0,0,.4);
+    background:
+    rgba(255,255,255,.12);
+
+    backdrop-filter:blur(15px);
+
+    border:
+    1px solid rgba(255,255,255,.2);
+
+    padding:30px;
+
+    border-radius:25px;
+
+    text-align:center;
+
+    box-shadow:
+    0 20px 40px rgba(0,0,0,.3);
+
+    transition:.3s;
 
 }
 
 
 
-.footer{
+.card:hover{
 
-    margin-top:35px;
-
-    color:#bfdbfe;
-
-    font-size:14px;
+    transform:translateY(-12px);
 
 }
+
+
+
+.card h2{
+
+    font-size:32px;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.card p{
+
+    font-size:18px;
+
+    margin-bottom:25px;
+
+}
+
+
+
+.card a{
+
+    display:inline-block;
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:14px 25px;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+}
+
+
+
+.card a:hover{
+
+    background:#38bdf8;
+
+}
+
+
+
+
+
+footer{
+
+    text-align:center;
+
+    padding:50px;
+
+    opacity:.8;
+
+}
+
 
 
 </style>
@@ -321,71 +344,131 @@ p{
 <div class="stars"></div>
 
 
-<div class="card">
+
+<header>
 
 
-<!-- הגדרות -->
 
-<div class="settings">
+<div class="settings" onclick="toggleSettings()">
 
 ⚙️
 
-<div class="settings-menu">
 
-<button onclick="setLanguage('en')">
-🇺🇸 English
-</button>
+<div class="settings-menu" id="settingsMenu">
+
 
 <button onclick="setLanguage('he')">
 🇮🇱 עברית
 </button>
 
-</div>
+
+<button onclick="setLanguage('en')">
+🇺🇸 English
+</button>
+
 
 </div>
 
 
-
-<div class="logo">
-🚀
 </div>
+
+
+
 
 
 <h1 id="title">
-My Portfolio
+🚀 הפרויקטים שלי
 </h1>
 
 
 <p id="subtitle">
-Welcome to my personal website
+כל האתרים והמשחקים שבניתי
 </p>
 
 
 
-<button id="githubBtn" class="btn github" onclick="github()">
+<a class="back" id="back"
+href="https://elroie2000games-crypto.github.io">
 
-🐙 GitHub
+⬅ חזרה לאתר הראשי
 
-</button>
-
-
-
-<button id="projectsBtn" class="btn projects" onclick="projects()">
-
-📂 Projects
-
-</button>
+</a>
 
 
 
-<div id="footer" class="footer">
+</header>
 
-Created by Elroie
+
+
+
+
+<section class="projects">
+
+
+
+<div class="card">
+
+<h2>
+👟 FlyStep
+</h2>
+
+
+<p id="flyText">
+אתר הנעליים המעופפות.
+</p>
+
+
+<a href="https://elroie2000games-crypto.github.io/Fly_Step/"
+target="_blank"
+id="open1">
+
+פתח את האתר 🚀
+
+</a>
+
 
 </div>
 
 
+
+
+
+<div class="card">
+
+
+<h2>
+🐍 Python Studio
+</h2>
+
+
+<p id="pythonText">
+עורך Python בדפדפן.
+</p>
+
+
+<a href="https://elroie2000games-crypto.github.io/Python-site/"
+target="_blank"
+id="open2">
+
+פתח את האתר 🚀
+
+</a>
+
+
 </div>
+
+
+
+</section>
+
+
+
+
+<footer id="footer">
+
+נבנה על ידי אלרואי ❤️
+
+</footer>
 
 
 
@@ -393,68 +476,91 @@ Created by Elroie
 <script>
 
 
-// הקישורים שלך
+function toggleSettings(){
 
-const GITHUB_URL =
-"https://github.com/dashboard";
-
-
-const PROJECTS_URL =
-"https://elroie2000games-crypto.github.io/projects_site/";
+let menu=document.getElementById("settingsMenu");
 
 
+if(menu.style.display==="block"){
 
-
-// מעבר לקישורים
-
-function github(){
-
-window.open(GITHUB_URL,"_blank");
+menu.style.display="none";
 
 }
 
+else{
 
-function projects(){
+menu.style.display="block";
 
-window.open(PROJECTS_URL,"_blank");
+}
 
 }
 
 
 
 
-
-// תרגומים
-
-const translations = {
+document.addEventListener("click",function(e){
 
 
-en:{
+let settings=document.querySelector(".settings");
 
-title:"My Portfolio",
+let menu=document.getElementById("settingsMenu");
 
-subtitle:"Welcome to my personal website",
 
-github:"🐙 GitHub",
+if(!settings.contains(e.target)){
 
-projects:"📂 Projects",
+menu.style.display="none";
 
-footer:"Created by Elroie"
+}
 
-},
+
+});
+
+
+
+
+
+const translations={
 
 
 he:{
 
-title:"הפורטפוליו שלי",
 
-subtitle:"ברוכים הבאים לאתר האישי שלי",
+title:"🚀 הפרויקטים שלי",
 
-github:"🐙 גיטהאב",
+subtitle:"כל האתרים והמשחקים שבניתי",
 
-projects:"📂 פרויקטים",
+back:"⬅ חזרה לאתר הראשי",
 
-footer:"נוצר על ידי אלרואי"
+fly:"אתר הנעליים המעופפות.",
+
+python:"עורך Python בדפדפן.",
+
+open:"פתח את האתר 🚀",
+
+footer:"נבנה על ידי אלרואי ❤️"
+
+
+},
+
+
+
+en:{
+
+
+title:"🚀 My Projects",
+
+subtitle:"All websites and games I built",
+
+back:"⬅ Back to main website",
+
+fly:"The flying shoes website.",
+
+python:"Python editor in the browser.",
+
+open:"Open Website 🚀",
+
+footer:"Created by Elroie ❤️"
+
 
 }
 
@@ -464,13 +570,14 @@ footer:"נוצר על ידי אלרואי"
 
 
 
+
 function setLanguage(lang){
 
 
-document.documentElement.lang = lang;
+document.documentElement.lang=lang;
 
 
-if(lang=="he"){
+if(lang==="he"){
 
 document.documentElement.dir="rtl";
 
@@ -484,23 +591,35 @@ document.documentElement.dir="ltr";
 
 
 
-document.getElementById("title").innerHTML =
+document.getElementById("title").innerHTML=
 translations[lang].title;
 
 
-document.getElementById("subtitle").innerHTML =
+document.getElementById("subtitle").innerHTML=
 translations[lang].subtitle;
 
 
-document.getElementById("githubBtn").innerHTML =
-translations[lang].github;
+document.getElementById("back").innerHTML=
+translations[lang].back;
 
 
-document.getElementById("projectsBtn").innerHTML =
-translations[lang].projects;
+document.getElementById("flyText").innerHTML=
+translations[lang].fly;
 
 
-document.getElementById("footer").innerHTML =
+document.getElementById("pythonText").innerHTML=
+translations[lang].python;
+
+
+document.getElementById("open1").innerHTML=
+translations[lang].open;
+
+
+document.getElementById("open2").innerHTML=
+translations[lang].open;
+
+
+document.getElementById("footer").innerHTML=
 translations[lang].footer;
 
 
@@ -513,8 +632,9 @@ localStorage.setItem("language",lang);
 
 
 
-let savedLanguage =
-localStorage.getItem("language") || "en";
+
+let savedLanguage=
+localStorage.getItem("language") || "he";
 
 
 setLanguage(savedLanguage);
@@ -525,4 +645,5 @@ setLanguage(savedLanguage);
 
 
 </body>
+
 </html>
