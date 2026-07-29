@@ -8,7 +8,6 @@
 
 <title>הפרויקטים של אלרואי</title>
 
-
 <style>
 
 *{
@@ -17,7 +16,6 @@
     box-sizing:border-box;
     font-family:Arial,sans-serif;
 }
-
 
 body{
 
@@ -33,7 +31,6 @@ body{
     color:white;
 
 }
-
 
 
 @keyframes bg{
@@ -53,11 +50,9 @@ body{
 }
 
 
-
 .stars{
 
     position:fixed;
-
     inset:0;
 
     background-image:
@@ -84,7 +79,6 @@ header{
 }
 
 
-
 header h1{
 
     font-size:50px;
@@ -92,7 +86,6 @@ header h1{
     margin-bottom:15px;
 
 }
-
 
 
 header p{
@@ -172,7 +165,6 @@ header p{
 }
 
 
-
 .settings-menu button:hover{
 
     background:#2563eb;
@@ -181,7 +173,7 @@ header p{
 
 
 
-
+/* BACK BUTTON */
 
 .back{
 
@@ -204,14 +196,11 @@ header p{
 }
 
 
-
 .back:hover{
 
     transform:scale(1.05);
 
 }
-
-
 
 
 
@@ -234,7 +223,6 @@ header p{
     padding:40px;
 
 }
-
 
 
 
@@ -262,7 +250,6 @@ header p{
 }
 
 
-
 .card:hover{
 
     transform:translateY(-12px);
@@ -280,7 +267,6 @@ header p{
 }
 
 
-
 .card p{
 
     font-size:18px;
@@ -288,7 +274,6 @@ header p{
     margin-bottom:25px;
 
 }
-
 
 
 .card a{
@@ -310,14 +295,11 @@ header p{
 }
 
 
-
 .card a:hover{
 
     background:#38bdf8;
 
 }
-
-
 
 
 
@@ -330,7 +312,6 @@ footer{
     opacity:.8;
 
 }
-
 
 
 </style>
@@ -348,8 +329,7 @@ footer{
 <header>
 
 
-
-<div class="settings" onclick="toggleSettings()">
+<div class="settings" onclick="toggleSettings(event)">
 
 ⚙️
 
@@ -358,12 +338,16 @@ footer{
 
 
 <button onclick="setLanguage('he')">
+
 🇮🇱 עברית
+
 </button>
 
 
 <button onclick="setLanguage('en')">
+
 🇺🇸 English
+
 </button>
 
 
@@ -371,18 +355,21 @@ footer{
 
 
 </div>
-
 
 
 
 
 <h1 id="title">
+
 🚀 הפרויקטים שלי
+
 </h1>
 
 
 <p id="subtitle">
+
 כל האתרים והמשחקים שבניתי
+
 </p>
 
 
@@ -395,7 +382,6 @@ href="https://elroie2000games-crypto.github.io">
 </a>
 
 
-
 </header>
 
 
@@ -403,7 +389,6 @@ href="https://elroie2000games-crypto.github.io">
 
 
 <section class="projects">
-
 
 
 <div class="card">
@@ -414,7 +399,9 @@ href="https://elroie2000games-crypto.github.io">
 
 
 <p id="flyText">
+
 אתר הנעליים המעופפות.
+
 </p>
 
 
@@ -442,7 +429,9 @@ id="open1">
 
 
 <p id="pythonText">
+
 עורך Python בדפדפן.
+
 </p>
 
 
@@ -473,10 +462,14 @@ id="open2">
 
 
 
+
 <script>
 
 
-function toggleSettings(){
+function toggleSettings(event){
+
+event.stopPropagation();
+
 
 let menu=document.getElementById("settingsMenu");
 
@@ -493,25 +486,14 @@ menu.style.display="block";
 
 }
 
-}
-
-
-
-
-document.addEventListener("click",function(e){
-
-
-let settings=document.querySelector(".settings");
-
-let menu=document.getElementById("settingsMenu");
-
-
-if(!settings.contains(e.target)){
-
-menu.style.display="none";
 
 }
 
+
+
+document.addEventListener("click",function(){
+
+document.getElementById("settingsMenu").style.display="none";
 
 });
 
@@ -591,35 +573,35 @@ document.documentElement.dir="ltr";
 
 
 
-document.getElementById("title").innerHTML=
+document.getElementById("title").innerHTML =
 translations[lang].title;
 
 
-document.getElementById("subtitle").innerHTML=
+document.getElementById("subtitle").innerHTML =
 translations[lang].subtitle;
 
 
-document.getElementById("back").innerHTML=
+document.getElementById("back").innerHTML =
 translations[lang].back;
 
 
-document.getElementById("flyText").innerHTML=
+document.getElementById("flyText").innerHTML =
 translations[lang].fly;
 
 
-document.getElementById("pythonText").innerHTML=
+document.getElementById("pythonText").innerHTML =
 translations[lang].python;
 
 
-document.getElementById("open1").innerHTML=
+document.getElementById("open1").innerHTML =
 translations[lang].open;
 
 
-document.getElementById("open2").innerHTML=
+document.getElementById("open2").innerHTML =
 translations[lang].open;
 
 
-document.getElementById("footer").innerHTML=
+document.getElementById("footer").innerHTML =
 translations[lang].footer;
 
 
@@ -632,13 +614,15 @@ localStorage.setItem("language",lang);
 
 
 
-
-let savedLanguage=
+let savedLanguage =
 localStorage.getItem("language") || "he";
 
 
 setLanguage(savedLanguage);
 
+
+
+console.log("Projects Portfolio Loaded 🚀");
 
 
 </script>
